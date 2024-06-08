@@ -1,0 +1,4 @@
+name: Better-District
+version: '1.0-SNAPSHOT'
+main: com.top1.districtplugin.Main
+api-version: 1.18
