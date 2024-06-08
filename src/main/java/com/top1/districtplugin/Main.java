@@ -1,5 +1,8 @@
 package com.top1.districtplugin;
 
+import com.top1.districtplugin.pl.commands.DistrictAdminCommand;
+import com.top1.districtplugin.pl.tabcompleter.DistrictAdminTabCompleter;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,6 +24,8 @@ public class Main extends JavaPlugin {
             if ("pl".equals(language)) {
                 getLogger().info("Loading Polish version of the plugin.");
                 delegate = new PolishPlugin(this);
+                getCommand("districtadmin").setExecutor(new DistrictAdminCommand(this));
+                getCommand("districtadmin").setTabCompleter(new DistrictAdminTabCompleter(Bukkit.getScoreboardManager()));
             } else {
                 getLogger().info("Loading English version of the plugin.");
                 delegate = new EnglishPlugin(this);
