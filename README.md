@@ -1,6 +1,6 @@
 
-- 🚫 **Niekompatybilny z LPC:** Plugin nie jest kompatybilny z pluginem LPC.
-- 🚫 **Non-Compatible with LPC:** This plugin is not compatible with the LPC plugin.
+- 🚫 **Niekompatybilny z LPC/LuckyPerms:** Plugin nie jest kompatybilny z pluginem LPC/LuckyPerms.
+- 🚫 **Non-Compatible with LPC/LuckyPerms:** This plugin is not compatible with the LPC/LuckyPerms plugin.
 
 
 ### 🇬🇧 ENG: Better-District 
