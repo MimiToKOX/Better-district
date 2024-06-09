@@ -1,4 +1,11 @@
 
+   ‼️ATTENTION‼️
+    If you are using a paper server enable this function in paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (must be true)
+    Jeżeli używasz serwera paper włącz tą funkcje w paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (musi być true)
+   ‼️ATTENTION‼️
+
+
+
 - 🚫 **Niekompatybilny z LPC/LuckyPerms:** Plugin nie jest kompatybilny z pluginem LPC/LuckyPerms.
 - 🚫 **Non-Compatible with LPC/LuckyPerms:** This plugin is not compatible with the LPC/LuckyPerms plugin.
 
