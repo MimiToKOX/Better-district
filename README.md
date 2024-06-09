@@ -30,7 +30,7 @@ To change the language of the plugin, open the `config.yml` file and set the `la
 - `/district invite <player>` - If you are the founder of the district invite players!
 - `/district leave` - Leaves the district.
 - `/district accept <district number>` - Accepts the request to join the district
-- `/disstrict removeplayer <player>` - Removes a player from the district
+- `/district removeplayer <player>` - Removes a player from the district
 
 ## Issues and Contributions
 If you encounter any issues or have suggestions for new features, please open an issue on the [GitHub repository](#). Contributions are welcome!
@@ -68,7 +68,7 @@ Aby zmienić język pluginu, otwórz plik `config.yml` i ustaw parametr `languag
 - `/district invite <player>` - Jeżeli jesteś założycielem dystryktu zapraszaj graczy!
 - `/district leave` - Opuszcza dystrykt
 - `/district accept <numer dystryktu>` - Akcpetuje prozbe o dołączenie do dystryktu
-- `/disstrict removeplayer <player>` - Usuwa gracza z dystryktu
+- `/district removeplayer <player>` - Usuwa gracza z dystryktu
 
 ## Problemy i Wkład
 Jeśli napotkasz jakiekolwiek problemy lub masz sugestie dotyczące nowych funkcji, otwórz zgłoszenie na [repozytorium GitHub](#). Wkład jest mile widziany!
