@@ -1,27 +1,32 @@
 package com.top1.districtplugin.pl.commands;
 
 import com.top1.districtplugin.utility.MessageUtil;
+import com.top1.districtplugin.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
 public class DistrictAdminCommand implements CommandExecutor {
 
-    private final JavaPlugin plugin;
+    private final Main plugin;
     private final ScoreboardManager scoreboardManager;
 
-    public DistrictAdminCommand(JavaPlugin plugin) {
+    public DistrictAdminCommand(Main plugin) {
         this.plugin = plugin;
         this.scoreboardManager = Bukkit.getScoreboardManager();
-
     }
+
+    private boolean isPlayerLeader(Player player, String districtName) {
+        String leaderUUID = plugin.getPlayerConfig().getString("leaders." + districtName);
+        return leaderUUID != null && leaderUUID.equals(player.getUniqueId().toString());
+    }
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -44,7 +49,7 @@ public class DistrictAdminCommand implements CommandExecutor {
         } else if (args[0].equalsIgnoreCase("district")) {
             handleDistrictCommand(sender, args);
         } else {
-            MessageUtil.sendError(sender,"Nie poprawna komenda! Użyj: &4/districtadmin help &cżeby dostać więcej informacji!");
+            MessageUtil.sendError(sender, "Nie poprawna komenda! Użyj: &4/districtadmin help &cżeby dostać więcej informacji!");
         }
 
         return true;
@@ -52,7 +57,7 @@ public class DistrictAdminCommand implements CommandExecutor {
 
     private void handlePlayerCommand(CommandSender sender, String[] args) {
         if (args.length < 4) {
-            MessageUtil.sendError(sender, "Poprawne użycie: /districtadmin player <nick> <add/remove> <district>");
+            MessageUtil.sendError(sender, "Poprawne użycie: /districtadmin player <nick> <add/remove/leader> <district>");
             return;
         }
 
@@ -74,16 +79,26 @@ public class DistrictAdminCommand implements CommandExecutor {
 
         if (action.equalsIgnoreCase("add")) {
             team.addEntry(player.getName());
-            MessageUtil.sendSucces(player, "Zostałeś dodany do dystryktu " + districtName);
-            MessageUtil.sendSucces(sender, "Gracz" + player.getName() + " został pomyślnie dodany do dystryktu " + districtName);
+            MessageUtil.sendSuccess(player, "Zostałeś dodany do dystryktu " + districtName);
+            MessageUtil.sendSuccess(sender, "Gracz " + player.getName() + " został pomyślnie dodany do dystryktu " + districtName);
         } else if (action.equalsIgnoreCase("remove")) {
             team.removeEntry(player.getName());
-            MessageUtil.sendSucces(player, "Zostałeś usunięty z dystryktu " + districtName);
-            MessageUtil.sendSucces(sender, "Gracz " + player.getName() + " został pomyślnie usunięty z dystryktu " + districtName);
+            MessageUtil.sendSuccess(player, "Zostałeś usunięty z dystryktu " + districtName);
+            MessageUtil.sendSuccess(sender, "Gracz " + player.getName() + " został pomyślnie usunięty z dystryktu " + districtName);
+        } else if (action.equalsIgnoreCase("leader")) {
+            plugin.getPlayerConfig().set("leaders." + districtName, player.getUniqueId().toString());
+            plugin.savePlayerConfig();
+            MessageUtil.sendSuccess(sender, "Gracz " + player.getName() + " został pomyślnie ustawiony jako lider dystryktu " + districtName);
         } else {
-            MessageUtil.sendError(sender, "Nie poprawna akcja! użyj add/remove");
+            MessageUtil.sendError(sender, "Niepoprawna akcja! użyj add/remove/leader");
+        }
+
+        if (action.equalsIgnoreCase("remove") && isPlayerLeader(player, districtName)) {
+            plugin.getPlayerConfig().set("leaders." + districtName, null);
+            plugin.savePlayerConfig();
         }
     }
+
 
     private void handleDistrictCommand(CommandSender sender, String[] args) {
         if (args.length < 2) {
@@ -98,7 +113,7 @@ public class DistrictAdminCommand implements CommandExecutor {
             int districtNumber = scoreboard.getTeams().size() + 1;
             Team newTeam = scoreboard.registerNewTeam("D" + districtNumber);
             newTeam.setPrefix(ChatColor.BOLD + "D" + districtNumber + " " + ChatColor.WHITE);
-            MessageUtil.sendSucces(sender, "Dystrykt D" + districtNumber + " Został stworzony!");
+            MessageUtil.sendSuccess(sender, "Dystrykt D" + districtNumber + " został stworzony!");
         } else if (action.equalsIgnoreCase("remove")) {
             if (args.length < 3) {
                 MessageUtil.sendError(sender, "Poprawne użycie: /districtadmin district remove <district>");
@@ -113,7 +128,9 @@ public class DistrictAdminCommand implements CommandExecutor {
             }
 
             team.unregister();
-            MessageUtil.sendSucces(sender, "Dystykt " + districtName + " został pomyślnie usunienty");
+            plugin.getPlayerConfig().set("leaders." + districtName, null);
+            plugin.savePlayerConfig();
+            MessageUtil.sendSuccess(sender, "Dystrykt " + districtName + " został pomyślnie usunięty");
         } else if (action.equalsIgnoreCase("edit")) {
             if (args.length < 5) {
                 MessageUtil.sendError(sender, "Poprawne użycie: /districtadmin district edit <district> <prefix/color> <value>");
@@ -131,22 +148,21 @@ public class DistrictAdminCommand implements CommandExecutor {
             String newValue = args[4];
 
             if (editType.equalsIgnoreCase("prefix")) {
-                team.setPrefix(ChatColor.translateAlternateColorCodes('&', newValue));
-                MessageUtil.sendSucces(sender,"Prefix dystryktu został pomyślnie zmieniony na: " + districtName);
+                team.setPrefix(ChatColor.translateAlternateColorCodes('&', newValue + " "));
+                MessageUtil.sendSuccess(sender, "Prefix dystryktu został pomyślnie zmieniony na: " + districtName);
             } else if (editType.equalsIgnoreCase("color")) {
                 ChatColor color = ChatColor.valueOf(newValue.toUpperCase());
                 team.setColor(color);
-                MessageUtil.sendSucces(sender,"Kolor dystryktu został pomyślnie zmieniony dla dystryktu: " + districtName);
+                MessageUtil.sendSuccess(sender, "Kolor dystryktu został pomyślnie zmieniony dla dystryktu: " + districtName);
             } else {
-                MessageUtil.sendError(sender,"Niepoprawna akcja! użyj: prefix/color");
+                MessageUtil.sendError(sender, "Niepoprawna akcja! użyj: prefix/color");
             }
         } else {
-            MessageUtil.sendError(sender,"Niepoprawna akcja! użyj: create/remove/edit.");
+            MessageUtil.sendError(sender, "Niepoprawna akcja! użyj: create/remove/edit.");
         }
     }
 
-
     private void HelpCommand(CommandSender sender, String[] args) {
-        MessageUtil.sendMessage(sender,"Jajo");
+        MessageUtil.sendMessage(sender, "Jajo");
     }
 }

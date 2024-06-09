@@ -6,3 +6,5 @@ api-version: 1.18
 commands:
   districtadmin:
     description: jajo
+  district:
+    description: jajo2

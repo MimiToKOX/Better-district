@@ -22,7 +22,7 @@ public class MessageUtil {
         sender.sendMessage(colorize(ChatColor.DARK_RED + "☺ " + ChatColor.RED + message));
     }
 
-    public static void sendSucces(CommandSender sender, String message) {
+    public static void sendSuccess(CommandSender sender, String message) {
         sender.sendMessage(colorize(ChatColor.DARK_GREEN + "☺ " + ChatColor.GREEN + message));
     }
 

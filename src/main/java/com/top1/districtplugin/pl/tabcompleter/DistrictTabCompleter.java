@@ -12,11 +12,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DistrictAdminTabCompleter implements TabCompleter {
+public class DistrictTabCompleter implements TabCompleter {
 
     private final ScoreboardManager scoreboardManager;
 
-    public DistrictAdminTabCompleter(ScoreboardManager scoreboardManager) {
+    public DistrictTabCompleter(ScoreboardManager scoreboardManager) {
         this.scoreboardManager = scoreboardManager;
     }
 
@@ -25,22 +25,12 @@ public class DistrictAdminTabCompleter implements TabCompleter {
         List<String> suggestions = new ArrayList<>();
 
         if (args.length == 1) {
-            suggestions.addAll(Arrays.asList("player", "district", "help"));
+            suggestions.addAll(Arrays.asList("invite", "accept", "leave", "removeplayer"));
         } else if (args.length == 2) {
-            if (args[0].equalsIgnoreCase("player")) {
+            if (args[0].equalsIgnoreCase("invite") || args[0].equalsIgnoreCase("removeplayer")) {
                 Bukkit.getOnlinePlayers().forEach(player -> suggestions.add(player.getName()));
-            } else if (args[0].equalsIgnoreCase("district")) {
-                suggestions.addAll(Arrays.asList("create", "remove", "edit"));
-            }
-        } else if (args.length == 3) {
-            if (args[0].equalsIgnoreCase("player")) {
-                suggestions.addAll(Arrays.asList("add", "remove", "leader"));
-            } else if (args[0].equalsIgnoreCase("district")) {
+            } else if (args[0].equalsIgnoreCase("accept")) {
                 scoreboardManager.getMainScoreboard().getTeams().forEach(team -> suggestions.add(team.getName()));
-            }
-        } else if (args.length == 4) {
-            if (args[0].equalsIgnoreCase("district") && args[1].equalsIgnoreCase("edit")) {
-                suggestions.addAll(Arrays.asList("prefix", "color"));
             }
         }
 
