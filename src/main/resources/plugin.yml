@@ -9,5 +9,12 @@ description: Plugin with districts for e.g. THE HUNGER GAMES
 commands:
   districtadmin:
     description: Admin command
+    aliases:
+      - da
+      - dadmin
+      - bdadmin
   district:
     description: Player command
+    aliases:
+      - d
+      - bd

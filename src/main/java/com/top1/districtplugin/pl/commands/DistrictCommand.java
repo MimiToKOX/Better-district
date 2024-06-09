@@ -3,6 +3,7 @@ package com.top1.districtplugin.pl.commands;
 import com.top1.districtplugin.utility.MessageUtil;
 import com.top1.districtplugin.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,7 +31,7 @@ public class DistrictCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length < 1) {
-            MessageUtil.sendError(sender, "Poprawne użycie: /district <invite/accept/leave/removeplayer>");
+            MessageUtil.sendError(sender, "Poprawne użycie: /district <invite/accept/leave/removeplayer/chat>");
             return true;
         }
 
@@ -42,8 +43,10 @@ public class DistrictCommand implements CommandExecutor {
             handleLeaveCommand(sender);
         } else if (args[0].equalsIgnoreCase("removeplayer")) {
             handleRemovePlayerCommand(sender, args);
+        } else if (args[0].equalsIgnoreCase("chat")) {
+            handleChatCommand(sender, args);
         } else {
-            MessageUtil.sendError(sender, "Niepoprawna komenda! Użyj: /district <invite/accept/leave/removeplayer>");
+            MessageUtil.sendError(sender, "Niepoprawna komenda! Użyj: /district <invite/accept/leave/removeplayer/chat>");
         }
 
         return true;
@@ -176,6 +179,35 @@ public class DistrictCommand implements CommandExecutor {
         team.removeEntry(targetPlayer.getName());
         MessageUtil.sendSuccess(sender, "Gracz " + targetPlayer.getName() + " został usunięty z dystryktu " + districtName);
         MessageUtil.sendSuccess(targetPlayer, "Zostałeś usunięty z dystryktu " + districtName);
+    }
+
+    private void handleChatCommand(CommandSender sender, String[] args) {
+
+        Player player = (Player) sender;
+        String districtName = getPlayerDistrict(player);
+        if (districtName == null) {
+            MessageUtil.sendError(sender, "Nie jesteś członkiem żadnego dystryktu.");
+            return;
+        }
+
+        StringBuilder message = new StringBuilder();
+        for (int i = 1; i < args.length; i++) {
+            message.append(args[i]).append(" ");
+        }
+
+        Scoreboard scoreboard = scoreboardManager.getMainScoreboard();
+        Team team = scoreboard.getTeam(districtName);
+        if (team == null) {
+            MessageUtil.sendError(sender, "Dystrykt " + districtName + " nie istnieje.");
+            return;
+        }
+
+        for (String entry : team.getEntries()) {
+            Player member = Bukkit.getPlayer(entry);
+            if (member != null) {
+                member.sendMessage(ChatColor.LIGHT_PURPLE + "[" + districtName + "] " + ChatColor.WHITE + player.getName() + ChatColor.GRAY + " --> " + message.toString().trim());
+            }
+        }
     }
 
     private boolean isPlayerLeader(Player player, String districtName) {

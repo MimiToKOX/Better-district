@@ -25,7 +25,7 @@ public class DistrictTabCompleter implements TabCompleter {
         List<String> suggestions = new ArrayList<>();
 
         if (args.length == 1) {
-            suggestions.addAll(Arrays.asList("invite", "accept", "leave", "removeplayer"));
+            suggestions.addAll(Arrays.asList("invite", "accept", "leave", "removeplayer", "chat"));
         } else if (args.length == 2) {
             if (args[0].equalsIgnoreCase("invite") || args[0].equalsIgnoreCase("removeplayer")) {
                 Bukkit.getOnlinePlayers().forEach(player -> suggestions.add(player.getName()));
