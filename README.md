@@ -1,8 +1,11 @@
 
-   ‼️ATTENTION‼️
-    If you are using a paper server enable this function in paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (must be true)
-    Jeżeli używasz serwera paper włącz tą funkcje w paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (musi być true)
-   ‼️ATTENTION‼️
+‼️ATTENTION‼️
+
+If you are using a paper server enable this function in paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (must be true)
+
+Jeżeli używasz serwera paper włącz tą funkcje w paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (musi być true)
+
+‼️ATTENTION‼️
 
 
 
