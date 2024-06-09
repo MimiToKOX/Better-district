@@ -32,6 +32,9 @@ To change the language of the plugin, open the `config.yml` file and set the `la
 - `/district accept <district number>` - Accepts the request to join the district
 - `/district removeplayer <player>` - Removes a player from the district
 - `/district chat <messenger>` - Message to everyone in the district
+
+- `/d /bd` = /district
+- `/da /dadmin /bdadmin` = /districtadmin
   
 ## Issues and Contributions
 If you encounter any issues or have suggestions for new features, please open an issue on the [GitHub repository](#). Contributions are welcome!
@@ -71,6 +74,9 @@ Aby zmienić język pluginu, otwórz plik `config.yml` i ustaw parametr `languag
 - `/district accept <numer dystryktu>` - Akcpetuje prozbe o dołączenie do dystryktu
 - `/district removeplayer <player>` - Usuwa gracza z dystryktu
 - `/district chat <wiadomość>` - Wiadomość do każdego w dystrykcie
+
+- `/d /bd` = /district
+- `/da /dadmin /bdadmin` = /districtadmin
 
 ## Problemy i Wkład
 Jeśli napotkasz jakiekolwiek problemy lub masz sugestie dotyczące nowych funkcji, otwórz zgłoszenie na [repozytorium GitHub](#). Wkład jest mile widziany!
