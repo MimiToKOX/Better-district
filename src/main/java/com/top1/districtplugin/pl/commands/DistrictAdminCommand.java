@@ -27,7 +27,6 @@ public class DistrictAdminCommand implements CommandExecutor {
         return leaderUUID != null && leaderUUID.equals(player.getUniqueId().toString());
     }
 
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -163,6 +162,23 @@ public class DistrictAdminCommand implements CommandExecutor {
     }
 
     private void HelpCommand(CommandSender sender, String[] args) {
-        MessageUtil.sendMessage(sender, "Jajo");
+        MessageUtil.sendMessage(sender, "&5---------- &dBetter district &5----------");
+        MessageUtil.sendMessage(sender,"&fKomendy dla gracza:");
+        MessageUtil.sendMessage(sender, "&8- &d/district invite <player> &7- &fJeżeli jesteś założycielem dystryktu zapraszaj graczy!");
+        MessageUtil.sendMessage(sender, "&8- &d/district leave &7- &fOpuszcza dystrykt");
+        MessageUtil.sendMessage(sender, "&8- &d/district accept <numer dystryktu> &7- &fAkcpetuje prozbe o dołączenie do dystryktu");
+        MessageUtil.sendMessage(sender, "&8- &d/district removeplayer <player> &7- &fUsuwa gracza z dystryktu");
+        MessageUtil.sendMessage(sender, "");
+        MessageUtil.sendMessage(sender, "&fKomendy dla admina:");
+        MessageUtil.sendMessage(sender, "&f                   Player");
+        MessageUtil.sendMessage(sender, "&8- &d/districtadmin player <nick> add <district> &7- &fDodaje gracza do dystryktu");
+        MessageUtil.sendMessage(sender, "&8- &d/districtadmin player <nick> remove <district> &7- &fUsuwa gracza z dystryktu");
+        MessageUtil.sendMessage(sender, "&8- &d/districtadmin player <nick> lider <district> &7- &fUstawia lidera dystryktu");
+        MessageUtil.sendMessage(sender, "&f                    District");
+        MessageUtil.sendMessage(sender, "&8- &d/districtadmin district create &7- &fTworzy nowy dystrykt");
+        MessageUtil.sendMessage(sender, "&8- &d/districtadmin district remove <dystrykt> &7- &fUsuwa dystrykt");
+        MessageUtil.sendMessage(sender, "&8- &d/districtadmin district edit <dystrykt> color <kolor po angliesku> &7- &fUstawia kolor dystryktu");
+        MessageUtil.sendMessage(sender, "&8- &d/districtadmin district edit <dystrykt> prefix <prefix dystryktu, można &> &7- &fUstawia nowy prefix dystryktu");
+        MessageUtil.sendMessage(sender, "&5---------- &dBetter district &5----------");
     }
 }

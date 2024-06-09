@@ -1,6 +1,6 @@
 package com.top1.districtplugin.eng;
 
-import com.top1.districtplugin.LanguagePlugin;
+import com.top1.districtplugin.utility.LanguagePlugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class EnglishPlugin implements LanguagePlugin {

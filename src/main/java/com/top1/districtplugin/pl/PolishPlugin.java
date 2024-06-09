@@ -1,8 +1,6 @@
 package com.top1.districtplugin.pl;
 
-import com.top1.districtplugin.LanguagePlugin;
-import com.top1.districtplugin.pl.commands.DistrictAdminCommand;
-import com.top1.districtplugin.pl.tabcompleter.DistrictAdminTabCompleter;
+import com.top1.districtplugin.utility.LanguagePlugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class PolishPlugin implements LanguagePlugin {

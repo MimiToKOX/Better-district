@@ -2,8 +2,8 @@ com\top1\districtplugin\pl\commands\DistrictCommand.class
 com\top1\districtplugin\utility\MessageUtil.class
 com\top1\districtplugin\eng\EnglishPlugin.class
 com\top1\districtplugin\Main.class
+com\top1\districtplugin\utility\LanguagePlugin.class
 com\top1\districtplugin\pl\commands\DistrictAdminCommand.class
 com\top1\districtplugin\pl\PolishPlugin.class
-com\top1\districtplugin\LanguagePlugin.class
 com\top1\districtplugin\pl\tabcompleter\DistrictAdminTabCompleter.class
 com\top1\districtplugin\pl\tabcompleter\DistrictTabCompleter.class

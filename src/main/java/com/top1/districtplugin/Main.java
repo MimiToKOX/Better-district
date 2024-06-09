@@ -4,6 +4,7 @@ import com.top1.districtplugin.pl.commands.DistrictAdminCommand;
 import com.top1.districtplugin.pl.commands.DistrictCommand;
 import com.top1.districtplugin.pl.tabcompleter.DistrictAdminTabCompleter;
 import com.top1.districtplugin.pl.tabcompleter.DistrictTabCompleter;
+import com.top1.districtplugin.utility.LanguagePlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -23,23 +24,35 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        // Load configuration
         saveDefaultConfig();
         loadPlayerConfig();
         FileConfiguration config = getConfig();
         String language = config.getString("language", "eng").toLowerCase();
+
+        // Language messenger
         getLogger().info("Language setting: " + language);
 
         try {
+            // Load PL Language
             if ("pl".equals(language)) {
                 getLogger().info("Loading Polish version of the plugin.");
                 delegate = new PolishPlugin(this);
+
+                // Load PL Command
                 getCommand("districtadmin").setExecutor(new DistrictAdminCommand(this));
                 getCommand("districtadmin").setTabCompleter(new DistrictAdminTabCompleter(Bukkit.getScoreboardManager()));
                 getCommand("district").setExecutor(new DistrictCommand(this));
                 getCommand("district").setTabCompleter(new DistrictTabCompleter(Bukkit.getScoreboardManager()));
             } else {
+                // Load ENG Language
                 getLogger().info("Loading English version of the plugin.");
                 delegate = new EnglishPlugin(this);
+
+                // Load ENG Command
+
+
             }
             delegate.onEnable();
         } catch (Exception e) {
