@@ -8,7 +8,7 @@ Jeżeli używasz serwera paper włącz tą funkcje w paper.yml!!! `use-vanilla-w
 ‼️ATTENTION‼️
 
 
-
+.
 - 🚫 **Niekompatybilny z LPC/LuckyPerms:** Plugin nie jest kompatybilny z pluginem LPC/LuckyPerms.
 - 🚫 **Non-Compatible with LPC/LuckyPerms:** This plugin is not compatible with the LPC/LuckyPerms plugin.
 
