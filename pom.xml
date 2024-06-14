@@ -9,7 +9,7 @@
   <version>v1.0</version>
   <packaging>jar</packaging>
 
-  <name>District-Plugin</name>
+  <name>Better-District</name>
 
   <properties>
     <java.version>1.8</java.version>
