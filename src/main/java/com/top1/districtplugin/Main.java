@@ -51,7 +51,10 @@ public class Main extends JavaPlugin {
                 delegate = new EnglishPlugin(this);
 
                 // Load ENG Command
-
+                getCommand("districtadmin").setExecutor(new com.top1.districtplugin.eng.commands.DistrictAdminCommand(this));
+                getCommand("districtadmin").setTabCompleter(new com.top1.districtplugin.eng.tabcompleter.DistrictAdminTabCompleter(Bukkit.getScoreboardManager()));
+                getCommand("district").setExecutor(new com.top1.districtplugin.eng.commands.DistrictCommand(this));
+                getCommand("district").setTabCompleter(new com.top1.districtplugin.eng.tabcompleter.DistrictTabCompleter(Bukkit.getScoreboardManager()));
 
             }
             delegate.onEnable();

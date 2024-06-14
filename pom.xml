@@ -6,7 +6,7 @@
 
   <groupId>com.top1</groupId>
   <artifactId>District-Plugin</artifactId>
-  <version>0.4 - closed beta</version>
+  <version>v1.0</version>
   <packaging>jar</packaging>
 
   <name>District-Plugin</name>
