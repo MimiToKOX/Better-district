@@ -1,6 +1,16 @@
 
-- 🚫 **Niekompatybilny z LPC/LuckyPerms:** Plugin nie jest kompatybilny z pluginem LPC/LuckyPerms.
-- 🚫 **Non-Compatible with LPC/LuckyPerms:** This plugin is not compatible with the LPC/LuckyPerms plugin.
+‼️ATTENTION‼️
+
+If you are using a paper server enable this function in paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (must be true)
+
+Jeżeli używasz serwera paper włącz tą funkcje w paper.yml!!! `use-vanilla-world-scoreboard-name-coloring: true` (musi być true)
+
+‼️ATTENTION‼️
+
+
+.
+- 🚫 **Niekompatybilny z LPC:** Plugin nie jest kompatybilny z pluginem LPC.
+- 🚫 **Non-Compatible with LPC:** This plugin is not compatible with the LPC plugin.
 
 
 ### 🇬🇧 ENG: Better-District 
@@ -32,6 +42,9 @@ To change the language of the plugin, open the `config.yml` file and set the `la
 - `/district accept <district number>` - Accepts the request to join the district
 - `/district removeplayer <player>` - Removes a player from the district
 - `/district chat <messenger>` - Message to everyone in the district
+
+- `/d /bd` = /district
+- `/da /dadmin /bdadmin` = /districtadmin
   
 ## Issues and Contributions
 If you encounter any issues or have suggestions for new features, please open an issue on the [GitHub repository](#). Contributions are welcome!
@@ -71,6 +84,9 @@ Aby zmienić język pluginu, otwórz plik `config.yml` i ustaw parametr `languag
 - `/district accept <numer dystryktu>` - Akcpetuje prozbe o dołączenie do dystryktu
 - `/district removeplayer <player>` - Usuwa gracza z dystryktu
 - `/district chat <wiadomość>` - Wiadomość do każdego w dystrykcie
+
+- `/d /bd` = /district
+- `/da /dadmin /bdadmin` = /districtadmin
 
 ## Problemy i Wkład
 Jeśli napotkasz jakiekolwiek problemy lub masz sugestie dotyczące nowych funkcji, otwórz zgłoszenie na [repozytorium GitHub](#). Wkład jest mile widziany!
