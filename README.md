@@ -47,7 +47,7 @@ To change the language of the plugin, open the `config.yml` file and set the `la
 - `/da /dadmin /bdadmin` = /districtadmin
   
 ## Issues and Contributions
-If you encounter any issues or have suggestions for new features, please open an issue on the [GitHub repository](#https://www.spigotmc.org/resources/better-district.117322/). Contributions are welcome!
+If you encounter any issues or have suggestions for new features, please open an issue on the [GitHub repository](https://www.spigotmc.org/resources/better-district.117322/). Contributions are welcome!
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](#) file for details.
@@ -89,7 +89,7 @@ Aby zmienić język pluginu, otwórz plik `config.yml` i ustaw parametr `languag
 - `/da /dadmin /bdadmin` = /districtadmin
 
 ## Problemy i Wkład
-Jeśli napotkasz jakiekolwiek problemy lub masz sugestie dotyczące nowych funkcji, otwórz zgłoszenie na [repozytorium GitHub](#https://www.spigotmc.org/resources/better-district.117322/). Wkład jest mile widziany!
+Jeśli napotkasz jakiekolwiek problemy lub masz sugestie dotyczące nowych funkcji, otwórz zgłoszenie na [repozytorium GitHub](https://www.spigotmc.org/resources/better-district.117322/). Wkład jest mile widziany!
 
 ## Licencja
 Ten projekt jest licencjonowany na licencji MIT. Zobacz plik [LICENSE](#) po więcej szczegółów.
